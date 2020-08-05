@@ -1,2 +1,4 @@
 # Conversor-sistemas-de-numeracion
- Una calculadora de conversión de sistemas de numeración
+ Un conversor de números entre diferentes sistemas de numeración.
+
+**Autor:** Daniel Felipe García Gómez.
