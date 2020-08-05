@@ -18,7 +18,7 @@ export class InputValidator {
     private validate(): void {
         let str: string = this.input.value.toUpperCase();
         let valid: string[] = str.split('').filter((c: string) => {
-            return this.converter.symbols.indexOf(c) >= 0;
+            return this.converter.symbols.indexOf(c) >= 0 || c == '.';
         });
         this.input.value = valid.join("");
         this.converter.input = this.input.value;

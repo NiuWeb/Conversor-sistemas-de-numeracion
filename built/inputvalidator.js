@@ -18,7 +18,7 @@ var InputValidator = /** @class */ (function () {
         var _this = this;
         var str = this.input.value.toUpperCase();
         var valid = str.split('').filter(function (c) {
-            return _this.converter.symbols.indexOf(c) >= 0;
+            return _this.converter.symbols.indexOf(c) >= 0 || c == '.';
         });
         this.input.value = valid.join("");
         this.converter.input = this.input.value;

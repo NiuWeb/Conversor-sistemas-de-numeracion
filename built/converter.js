@@ -43,7 +43,8 @@ var Converter = /** @class */ (function () {
         configurable: true
     });
     Converter.prototype.convert = function (to) {
-        var res = this._input;
+        var parts = this._input.split(/\.+/);
+        var res = parts[0];
         var dec = 0;
         for (var i = res.length - 1; i >= 0; i--) {
             var val = res.length - 1 - i;
@@ -57,7 +58,26 @@ var Converter = /** @class */ (function () {
             dec = Math.floor(dec / to);
             res = this._symbols[mod] + res;
         }
-        return res;
+        var res2 = "";
+        if (parts.length == 2) {
+            dec = 0;
+            res2 = parts[1];
+            for (var i = 0; i < res2.length; i++) {
+                var val = -1 - i;
+                var chr = res2[i];
+                var pos = this._symbols.indexOf(chr);
+                dec += pos * Math.pow(this._mode, val);
+            }
+            res2 = "";
+            var approx = 5;
+            while (approx-- > 0) {
+                dec *= to;
+                var int = Math.floor(dec);
+                res2 += this._symbols[int];
+                dec -= int;
+            }
+        }
+        return res + (res2 == "" ? "" : "." + res2);
     };
     return Converter;
 }());

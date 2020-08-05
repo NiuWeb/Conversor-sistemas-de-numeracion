@@ -27,7 +27,8 @@ export class Converter {
     }
 
     private convert(to: number): string {
-        let res:string = this._input;
+        let parts:string[] = this._input.split(/\.+/);
+        let res:string = parts[0];
         let dec:number = 0;
         for(let i = res.length - 1; i >= 0; i--) {
             let val: number = res.length - 1 - i;
@@ -37,10 +38,29 @@ export class Converter {
         }
         res = "";
         while(dec > 0) {
-            let mod = dec % to;
+            let mod:number = dec % to;
             dec = Math.floor(dec/to);
             res = this._symbols[mod] + res;
         }
-        return res;
+        let res2:string = "";
+        if(parts.length == 2) {
+            dec = 0;
+            res2 = parts[1];
+            for(let i = 0; i < res2.length; i++) {
+                let val: number = -1 - i;
+                let chr: string = res2[i];
+                let pos: number = this._symbols.indexOf(chr);
+                dec += pos * this._mode ** val;
+            }
+            res2 = "";
+            let approx: number = 5;
+            while(approx-- > 0) {
+                dec *= to;
+                let int = Math.floor(dec);
+                res2 += this._symbols[int];
+                dec -= int;
+            }
+        }
+        return res + (res2 == "" ? "": "." + res2);
     }
 }
