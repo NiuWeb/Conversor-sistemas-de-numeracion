@@ -1,0 +1,49 @@
+html, body {
+    position: absolute;
+    width:100%;
+    height: 100%;
+}
+body {
+    margin: 0;
+    background-color: #333;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: white;
+}
+#main-container {
+    background-color: black;
+    color: #EEE;
+    padding: 0.5em;
+}
+#main-container input[type="text"] {
+    background-color: #222;
+    font-size: 2em;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #EEE;
+    outline: none;
+    border: none;
+    display: block;
+    margin-bottom: 0.5em;
+}
+#mode-list {
+    display: flex;
+    justify-content: center;
+}
+#mode-list .mode {
+    background-color: #222;
+    color: white;
+    border: none;
+    margin:0.5em;
+    outline: none;
+}
+#mode-list .mode.selected {
+    background-color:  rgb(55, 100, 226);
+}
