@@ -23,6 +23,7 @@ var ModeSelector = /** @class */ (function () {
             // seleccionar botón actual al clickearlo
             node.addEventListener("click", callback);
             node.addEventListener("change", callback);
+            node.addEventListener("focus", callback);
         };
         var this_1 = this;
         for (var i = 0; i < this.list.length; i++) {

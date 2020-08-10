@@ -25,6 +25,7 @@ export class ModeSelector {
             // seleccionar botón actual al clickearlo
             node.addEventListener("click", callback);
             node.addEventListener("change", callback);
+            node.addEventListener("focus", callback);
         }
     }
     // Obtener la base numérica del botón
