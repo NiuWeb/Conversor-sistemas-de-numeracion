@@ -22,6 +22,7 @@ var ModeSelector = /** @class */ (function () {
             }
             // seleccionar botón actual al clickearlo
             node.addEventListener("click", callback);
+            node.addEventListener("change", callback);
         };
         var this_1 = this;
         for (var i = 0; i < this.list.length; i++) {
@@ -30,7 +31,7 @@ var ModeSelector = /** @class */ (function () {
     }
     // Obtener la base numérica del botón
     ModeSelector.prototype.getNodeValue = function (node) {
-        var val = node.getAttribute("value");
+        var val = node.value;
         if (val == null) {
             return null;
         }
